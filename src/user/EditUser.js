@@ -40,7 +40,7 @@ export default function EditUser() {
 
     const loadUser = async () => {
         try {
-            const result = await axios.get(`http://localhost:8083/estudiante/${id}`);
+            const result = await axios.get(`http://localhost:8083/estudiantes/${id}`);
             setUser(result.data);
         } catch (error) {
             console.error("Error al cargar los datos:", error);

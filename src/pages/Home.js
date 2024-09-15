@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default function Home() {
 
     const [users, setUsers] = useState([]);
+    const { id } = useParams();
 
     useEffect(() => {
         loadUsers();
@@ -14,6 +15,11 @@ export default function Home() {
         const result = await axios.get("http://localhost:8083/estudiantes-bd");
         setUsers(result.data);
     };
+
+    const deleteUser = async (id) => {
+        await axios.delete(`http://localhost:8083/estudianteEliminado/${id}`);
+        loadUsers();
+    }
 
     return (
         <div className='container'>
@@ -48,11 +54,17 @@ export default function Home() {
                                     <td>{user.semestre}</td>
                                     <td>{user.promedio}</td>
                                     <td>
-                                        <button className='btn btn-primary mx-2'>Ver</button>
+                                        <Link
+                                            className="btn btn-primary mx-2"
+                                            to={`/viewuser/${user.id}`}
+                                        >
+                                            View
+                                        </Link>
                                         <Link className='btn btn-outline-primary mx-2'
                                             to={`/edituser/${user.id}`}
                                         >Editar</Link>
-                                        <button className='btn btn-danger mx-2'>Eliminar</button>
+                                        <button className='btn btn-danger mx-2' onClick={() => deleteUser(user.id)}>
+                                            Eliminar</button>
                                     </td>
 
                                 </tr>
