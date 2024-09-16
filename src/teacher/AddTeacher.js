@@ -15,7 +15,7 @@ export default function AddTeacher() {
         email: ""
     });
 
-    const { nombre, genero, edad, departamento, cargo, email} = teacher;
+    const { nombre, genero, edad, departamento, cargo, email } = teacher;
 
     const onInputChange = (e) => {
         setTeacher({ ...teacher, [e.target.name]: e.target.value });
@@ -25,8 +25,8 @@ export default function AddTeacher() {
         e.preventDefault();
         try {
             console.log(teacher); // Para verificar el contenido de 'teacher'
-            await axios.post("http://localhost:8083/teacher", teacher);
-            navigate("/");
+            await axios.post("http://localhost:8083/profesor", teacher);
+            navigate("/homeprofesores");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
         }
@@ -87,31 +87,31 @@ export default function AddTeacher() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Email</label>
+                            <label htmlFor="email" className="form-label">Cargo</label>
                             <input
                                 type="email"
                                 id="email"
                                 className="form-control"
-                                placeholder="Ingrese el email"
+                                placeholder="Ingrese el cargo"
                                 name="email"
                                 value={email}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="cargo" className="form-label">Cargo</label>
+                            <label htmlFor="cargo" className="form-label">Email</label>
                             <input
                                 type="text"
                                 id="cargo"
                                 className="form-control"
-                                placeholder="Ingrese el semestre"
+                                placeholder="Ingrese el email"
                                 name="cargo"
                                 value={cargo}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <button type="submit" className="btn btn-outline-primary">Guardar</button>
-                        <button type="button" className="btn btn-outline-danger mx-2" onClick={() => navigate("/")}>Cancelar</button>
+                        <button type="button" className="btn btn-outline-danger mx-2" onClick={() => navigate("/homeprofesores")}>Cancelar</button>
                     </form>
                 </div>
             </div>
