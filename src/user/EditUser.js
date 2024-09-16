@@ -28,7 +28,7 @@ export default function EditUser() {
         try {
             console.log(user); // Para verificar el contenido de 'user'
             await axios.put(`http://localhost:8083/estudiante/${id}`, user);
-            navigate("/");
+            navigate("/homeestudiantes");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
         }
@@ -139,7 +139,7 @@ export default function EditUser() {
                             />
                         </div>
                         <button type="submit" className="btn btn-outline-primary">Guardar</button>
-                        <button type="button" className="btn btn-outline-danger mx-2" onClick={() => navigate("/")}>Cancelar</button>
+                        <button type="button" className="btn btn-outline-danger mx-2" onClick={() => navigate("/homeestudiantes")}>Cancelar</button>
                     </form>
                 </div>
             </div>

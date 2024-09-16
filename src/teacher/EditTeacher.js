@@ -16,7 +16,7 @@ export default function EditTeacher() {
         email: ""
     });
 
-    const { nombre, genero, edad, departamento, cargo, email} = teacher;
+    const { nombre, genero, edad, departamento, cargo, email } = teacher;
 
     const onInputChange = (e) => {
         setTeacher({ ...teacher, [e.target.name]: e.target.value });
@@ -27,7 +27,7 @@ export default function EditTeacher() {
         try {
             console.log(teacher); // Para verificar el contenido de 'teacher'
             await axios.put(`http://localhost:8083/profesor/${id}`, teacher);
-            navigate("/");
+            navigate("/homeprofesores");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
         }
@@ -37,9 +37,9 @@ export default function EditTeacher() {
         loadTeacher();
     }, []);
 
-    const loadUser = async () => {
+    const loadTeacher = async () => {
         try {
-            const result = await axios.get(`http://localhost:8083/profesor/${id}`);
+            const result = await axios.get(`http://localhost:8083/profesores/${id}`);
             setTeacher(result.data);
         } catch (error) {
             console.error("Error al cargar los datos:", error);
@@ -96,19 +96,7 @@ export default function EditTeacher() {
                                 className="form-control"
                                 placeholder="Ingrese el departamento"
                                 name="departamento"
-                                value={carrera}
-                                onChange={onInputChange}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="form-control"
-                                placeholder="Ingrese el email"
-                                name="email"
-                                value={email}
+                                value={departamento}
                                 onChange={onInputChange}
                             />
                         </div>
@@ -124,8 +112,20 @@ export default function EditTeacher() {
                                 onChange={onInputChange}
                             />
                         </div>
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                className="form-control"
+                                placeholder="Ingrese el email"
+                                name="email"
+                                value={email}
+                                onChange={onInputChange}
+                            />
+                        </div>
                         <button type="submit" className="btn btn-outline-primary">Guardar</button>
-                        <button type="button" className="btn btn-outline-danger mx-2" onClick={() => navigate("/")}>Cancelar</button>
+                        <button type="button" className="btn btn-outline-danger mx-2" onClick={() => navigate("/homeprofesores")}>Cancelar</button>
                     </form>
                 </div>
             </div>

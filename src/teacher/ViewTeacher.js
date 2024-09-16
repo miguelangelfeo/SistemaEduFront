@@ -17,8 +17,8 @@ export default function ViewTeacher() {
 
     const loadTeacher = async () => {
         try {
-            const result = await axios.get(`http://localhost:8083/profesor/${id}`);
-            setUser(result.data);
+            const result = await axios.get(`http://localhost:8083/profesores/${id}`);
+            setTeacher(result.data);
         } catch (error) {
             console.error("Error al cargar los datos:", error);
         }
@@ -37,18 +37,18 @@ export default function ViewTeacher() {
 
                     <div className="card">
                         <div className="card-header">
-                            detalles del usuario :
+                            detalles del profesor :
                             <ul className="list-group list-group-flush" >
                                 <li className="list-group-item"> <b>Nombre: </b> {teacher.nombre} </li>
                                 <li className="list-group-item"> <b>Género: </b> {teacher.genero} </li>
                                 <li className="list-group-item"> <b>Edad: </b> {teacher.edad} </li>
-                                <li className="list-group-item"> <b>Carrera: </b> {teacher.departamento} </li>
-                                <li className="list-group-item"> <b>Email: </b> {teacher.cargo} </li>
-                                <li className="list-group-item"> <b>Semestre: </b> {teacher.email} </li>
+                                <li className="list-group-item"> <b>Departamento: </b> {teacher.departamento} </li>
+                                <li className="list-group-item"> <b>Cargo: </b> {teacher.cargo} </li>
+                                <li className="list-group-item"> <b>email: </b> {teacher.email} </li>
                             </ul>
                         </div>
                     </div>
-                    <Link className="btn btn-primary my-2" to={"/"}>Volver al inicio</Link>
+                    <Link className="btn btn-primary my-2" to={"/homeprofesores"}>Volver al inicio</Link>
                 </div>
             </div>
         </div>
