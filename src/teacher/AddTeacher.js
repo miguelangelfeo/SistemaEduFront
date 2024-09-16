@@ -87,26 +87,26 @@ export default function AddTeacher() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Cargo</label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="form-control"
-                                placeholder="Ingrese el cargo"
-                                name="email"
-                                value={email}
-                                onChange={(e) => onInputChange(e)}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="cargo" className="form-label">Email</label>
+                            <label htmlFor="cargo" className="form-label">Cargo</label>
                             <input
                                 type="text"
                                 id="cargo"
                                 className="form-control"
-                                placeholder="Ingrese el email"
+                                placeholder="Ingrese el cargo"
                                 name="cargo"
                                 value={cargo}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                className="form-control"
+                                placeholder="Ingrese el email"
+                                name="email"
+                                value={email}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
