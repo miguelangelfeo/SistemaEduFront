@@ -20,6 +20,7 @@ export default function NavBar() {
                     </button>
                     <Link className="btn btn-outline-light" to="/adduser"> Agregar estudiante </Link>
                     <Link className="btn btn-outline-light" to="/addprofesor"> Agregar profesor </Link>
+                    <Link className="btn btn-outline-light" to="/addsubject"> Agregar clase </Link>
                 </div>
             </nav>
 
