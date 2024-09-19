@@ -15,7 +15,7 @@ import ViewTeacher from './teacher/ViewTeacher';
 import AddSubject from './Asignatura/AddSubject';
 import HomeSubject from './pages/HomeSubject';
 import EditSubject from './Asignatura/EditSubject';
-import ViewSubject from './Asignatura/ViewSubject';
+
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/addsubject" element={<AddSubject />} />
           <Route exact path="/homesubject" element={<HomeSubject />} />
           <Route exact path="/editsubject/:id" element={<EditSubject />} />
-          <Route exact path="/viewsubject/:id" element={<ViewSubject />} />
+
         </Routes>
       </Router>
 
