@@ -10,10 +10,13 @@ export default function HomePrincipal() {
                     <p>Selecciona una opción para continuar:</p>
                     <div className='mt-4'>
                         <Link to="/homeestudiantes" className="btn btn-info mx-2">
-                            Ir a Home Estudiante
+                            Ir a Estudiantes
                         </Link>
                         <Link to="/homeprofesores" className="btn btn-success mx-2">
-                            Ir a Home Profesor
+                            Ir a Profesores
+                        </Link>
+                        <Link to="/homesubject" className="btn btn-success mx-2">
+                            Ir a asignaturas
                         </Link>
                     </div>
                 </div>
