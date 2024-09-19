@@ -25,7 +25,7 @@ export default function AddTeacher() {
         e.preventDefault();
         try {
             console.log(teacher); // Para verificar el contenido de 'teacher'
-            await axios.post("http://localhost:8083/profesor", teacher);
+            await axios.post("https://sisteducacion.onrender.com/profesor", teacher);
             navigate("/homeprofesores");
         } catch (error) {
             console.error("Error al enviar los datos:", error);

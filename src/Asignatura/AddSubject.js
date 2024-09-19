@@ -21,7 +21,7 @@ export default function Addsubject() {
         e.preventDefault();
         try {
             console.log(subject); // Para verificar el contenido de 'subject'
-            await axios.post("http://localhost:8083/asignatura", subject);
+            await axios.post("https://sisteducacion.onrender.com/asignatura", subject);
             navigate("/homesubject");
         } catch (error) {
             console.error("Error al enviar los datos:", error);

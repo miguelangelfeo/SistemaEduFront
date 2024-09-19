@@ -12,12 +12,12 @@ export default function Home() {
     }, []);
 
     const loadSubjects = async () => {
-        const result = await axios.get("http://localhost:8083/asignaturas-bd");
+        const result = await axios.get("https://sisteducacion.onrender.com/asignaturas-bd");
         setSubjects(result.data);
     };
 
     const deleteSubject = async (id) => {
-        await axios.delete(`http://localhost:8083/asignaturaEliminada/${id}`);
+        await axios.delete(`https://sisteducacion.onrender.com/asignaturaEliminada/${id}`);
         loadSubjects();
     }
 

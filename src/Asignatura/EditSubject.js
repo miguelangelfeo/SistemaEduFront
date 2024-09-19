@@ -21,7 +21,7 @@ export default function EditSubject() {
         e.preventDefault();
         try {
             console.log(subject); // Para verificar el contenido de 'subject'
-            await axios.put(`http://localhost:8083/asignatura/${id}`, subject);
+            await axios.put(`https://sisteducacion.onrender.com/asignatura/${id}`, subject);
             navigate("/homesubject");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
@@ -34,7 +34,7 @@ export default function EditSubject() {
 
     const loadSubject = async () => {
         try {
-            const result = await axios.get(`http://localhost:8083/asignaturas/${id}`);
+            const result = await axios.get(`https://sisteducacion.onrender.com/asignaturas/${id}`);
             setSubject(result.data);
         } catch (error) {
             console.error("Error al cargar los datos:", error);
