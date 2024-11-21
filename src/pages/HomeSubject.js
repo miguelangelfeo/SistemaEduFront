@@ -16,7 +16,7 @@ export default function Home() {
     };
 
     const deleteSubject = async (id) => {
-        await axios.delete(`https://sisteducacion.onrender.com/asignaturaEliminada/${id}`);
+        await axios.delete(`http://localhost:8083/asignaturaEliminada/${id}`);
         loadSubjects();
     };
 

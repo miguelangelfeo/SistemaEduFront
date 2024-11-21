@@ -26,7 +26,7 @@ export default function EditTeacher() {
         e.preventDefault();
         try {
             console.log(teacher); // Para verificar el contenido de 'teacher'
-            await axios.put(`https://sisteducacion.onrender.com/profesor/${id}`, teacher);
+            await axios.put(`http://localhost:8083/profesor/${id}`, teacher);
             navigate("/homeprofesores");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
@@ -39,7 +39,7 @@ export default function EditTeacher() {
 
     const loadTeacher = async () => {
         try {
-            const result = await axios.get(`https://sisteducacion.onrender.com/profesores/${id}`);
+            const result = await axios.get(`http://localhost:8083/profesores/${id}`);
             setTeacher(result.data);
         } catch (error) {
             console.error("Error al cargar los datos:", error);
@@ -65,16 +65,18 @@ export default function EditTeacher() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="genero" className="form-label">Genero del profesor</label>
-                            <input
-                                type="text"
+                            <label htmlFor="genero" className="form-label">Género del profesor</label>
+                            <select
                                 id="genero"
                                 className="form-control"
-                                placeholder="Ingrese el genero del profesor"
                                 name="genero"
                                 value={genero}
-                                onChange={onInputChange}
-                            />
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value="">Seleccione el género</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="edad" className="form-label">Edad del profesor</label>
@@ -102,15 +104,17 @@ export default function EditTeacher() {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="cargo" className="form-label">Cargo</label>
-                            <input
-                                type="text"
+                            <select
                                 id="cargo"
                                 className="form-control"
-                                placeholder="Ingrese el cargo"
                                 name="cargo"
                                 value={cargo}
-                                onChange={onInputChange}
-                            />
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value="">Seleccione el cargo</option>
+                                <option value="Cátedra">Cátedra</option>
+                                <option value="Planta">Planta</option>
+                            </select>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email</label>

@@ -25,7 +25,7 @@ export default function AddTeacher() {
         e.preventDefault();
         try {
             console.log(teacher); // Para verificar el contenido de 'teacher'
-            await axios.post("https://sisteducacion.onrender.com/profesor", teacher);
+            await axios.post("http://localhost:8083/profesor", teacher);
             navigate("/homeprofesores");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
@@ -51,16 +51,18 @@ export default function AddTeacher() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="genero" className="form-label">Genero del profesor</label>
-                            <input
-                                type="text"
+                            <label htmlFor="genero" className="form-label">Género del profesor</label>
+                            <select
                                 id="genero"
                                 className="form-control"
-                                placeholder="Ingrese el genero del profesor"
                                 name="genero"
                                 value={genero}
                                 onChange={(e) => onInputChange(e)}
-                            />
+                            >
+                                <option value="">Seleccione el género</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="edad" className="form-label">Edad del profesor</label>
@@ -88,15 +90,17 @@ export default function AddTeacher() {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="cargo" className="form-label">Cargo</label>
-                            <input
-                                type="text"
+                            <select
                                 id="cargo"
                                 className="form-control"
-                                placeholder="Ingrese el cargo"
                                 name="cargo"
                                 value={cargo}
                                 onChange={(e) => onInputChange(e)}
-                            />
+                            >
+                                <option value="">Seleccione el cargo</option>
+                                <option value="Cátedra">Cátedra</option>
+                                <option value="Planta">Planta</option>
+                            </select>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email</label>

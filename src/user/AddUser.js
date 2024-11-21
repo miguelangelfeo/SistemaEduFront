@@ -26,7 +26,7 @@ export default function AddUser() {
         e.preventDefault();
         try {
             console.log(user); // Para verificar el contenido de 'user'
-            await axios.post("https://sisteducacion.onrender.com/estudiante", user);
+            await axios.post("http://localhost:8083/estudiante", user);
             navigate("/homeestudiantes");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
@@ -52,16 +52,18 @@ export default function AddUser() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="genero" className="form-label">Genero del estudiante</label>
-                            <input
-                                type="text"
+                            <label htmlFor="genero" className="form-label">Género del profesor</label>
+                            <select
                                 id="genero"
                                 className="form-control"
-                                placeholder="Ingrese el genero del estudiante"
                                 name="genero"
                                 value={genero}
                                 onChange={(e) => onInputChange(e)}
-                            />
+                            >
+                                <option value="">Seleccione el género</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="edad" className="form-label">Edad del estudiante</label>
