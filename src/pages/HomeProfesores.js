@@ -12,12 +12,12 @@ export default function Home() {
     }, []);
 
     const loadTeachers = async () => {
-        const result = await axios.get("http://localhost:8083/profesores-bd");
+        const result = await axios.get("https://sisteducacion.onrender.com/profesores-bd");
         setTeachers(result.data);
     };
 
     const deleteTeachers = async (id) => {
-        await axios.delete(`http://localhost:8083/profesorEliminado/${id}`);
+        await axios.delete(`https://sisteducacion.onrender.com/profesorEliminado/${id}`);
         loadTeachers();
     }
 

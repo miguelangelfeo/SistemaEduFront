@@ -17,7 +17,7 @@ export default function ViewTeacher() {
 
     const loadTeacher = async () => {
         try {
-            const result = await axios.get(`http://localhost:8083/profesores/${id}`);
+            const result = await axios.get(`https://sisteducacion.onrender.com/profesores/${id}`);
             setTeacher(result.data);
         } catch (error) {
             console.error("Error al cargar los datos:", error);
