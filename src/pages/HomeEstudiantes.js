@@ -12,12 +12,12 @@ export default function Home() {
     }, []);
 
     const loadUsers = async () => {
-        const result = await axios.get("http://localhost:8083/estudiantes-bd");
+        const result = await axios.get("https://sisteducacion-4ese.onrender.com/estudiantes-bd");
         setUsers(result.data);
     };
 
     const deleteUser = async (id) => {
-        await axios.delete(`http://localhost:8083/estudianteEliminado/${id}`);
+        await axios.delete(`https://sisteducacion-4ese.onrender.com/estudianteEliminado/${id}`);
         loadUsers();
     }
 
