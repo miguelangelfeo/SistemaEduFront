@@ -27,7 +27,7 @@ export default function EditUser() {
         e.preventDefault();
         try {
             console.log(user); // Para verificar el contenido de 'user'
-            await axios.put(`http://localhost:8083/estudiante/${id}`, user);
+            await axios.put(`https://sisteducacion-4ese.onrender.com/estudiante/${id}`, user);
             navigate("/homeestudiantes");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
@@ -40,7 +40,7 @@ export default function EditUser() {
 
     const loadUser = async () => {
         try {
-            const result = await axios.get(`http://localhost:8083/estudiantes/${id}`);
+            const result = await axios.get(`https://sisteducacion-4ese.onrender.com/estudiantes/${id}`);
             setUser(result.data);
         } catch (error) {
             console.error("Error al cargar los datos:", error);

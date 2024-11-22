@@ -26,7 +26,7 @@ export default function AddUser() {
         e.preventDefault();
         try {
             console.log(user); // Para verificar el contenido de 'user'
-            await axios.post("http://localhost:8083/estudiante", user);
+            await axios.post("https://sisteducacion-4ese.onrender.com/estudiante", user);
             navigate("/homeestudiantes");
         } catch (error) {
             console.error("Error al enviar los datos:", error);

@@ -26,7 +26,7 @@ export default function EditTeacher() {
         e.preventDefault();
         try {
             console.log(teacher); // Para verificar el contenido de 'teacher'
-            await axios.put(`http://localhost:8083/profesor/${id}`, teacher);
+            await axios.put(`https://sisteducacion-4ese.onrender.com/profesor/${id}`, teacher);
             navigate("/homeprofesores");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
@@ -39,7 +39,7 @@ export default function EditTeacher() {
 
     const loadTeacher = async () => {
         try {
-            const result = await axios.get(`http://localhost:8083/profesores/${id}`);
+            const result = await axios.get(`https://sisteducacion-4ese.onrender.com/profesores/${id}`);
             setTeacher(result.data);
         } catch (error) {
             console.error("Error al cargar los datos:", error);

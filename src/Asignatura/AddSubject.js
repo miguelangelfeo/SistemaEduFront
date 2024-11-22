@@ -23,8 +23,8 @@ export default function Addsubject() {
         const fetchData = async () => {
             try {
                 const [professorRes, studentRes] = await Promise.all([
-                    axios.get("http://localhost:8083/profesores-bd"),
-                    axios.get("http://localhost:8083/estudiantes-bd"),
+                    axios.get("https://sisteducacion-4ese.onrender.com/profesores-bd"),
+                    axios.get("https://sisteducacion-4ese.onrender.com/estudiantes-bd"),
                 ]);
                 setProfessors(professorRes.data);
                 setStudents(studentRes.data);
@@ -70,7 +70,7 @@ export default function Addsubject() {
             };
 
             console.log("Datos enviados al backend:", payload); // Verificar datos finales
-            await axios.post("http://localhost:8083/asignatura", payload);
+            await axios.post("https://sisteducacion-4ese.onrender.com/asignatura", payload);
             navigate("/homesubject");
         } catch (error) {
             console.error("Error al enviar los datos:", error);
